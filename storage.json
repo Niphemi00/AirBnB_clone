@@ -1,0 +1,38 @@
+{
+    "Users": [
+        {
+            "user_id": "832fe2df-f220-4e41-a9e7-deea4971e53c",
+            "username": "steve",
+            "email": "steve@gmail.com",
+            "timeOfchange": "2024-05-13 22:19:07"
+        },
+        {
+            "user_id": "f8db0ef0-ff16-40cb-ade7-70171f949308",
+            "username": "steve",
+            "email": "steve@gmail.com",
+            "timeOfchange": "2024-05-13 22:21:22"
+        },
+        {
+            "user_id": "f8db0ef0-ff16-40cb-ade7-70171f949308",
+            "username": "joshua",
+            "email": "Hate@gmailcom",
+            "timeOfchange": "2024-05-13 22:21:30"
+        }
+    ],
+    "States": [
+        {
+            "state_id": "d9a91b0e-93af-4a50-883e-663c5c27bb23",
+            "state_name": [
+                "PortHarcourt"
+            ],
+            "timeOfchange": "2024-05-13 22:22:17"
+        },
+        {
+            "state_id": "d9a91b0e-93af-4a50-883e-663c5c27bb23",
+            "state_name": [
+                "ondo"
+            ],
+            "timeOfchange": "2024-05-13 22:22:29"
+        }
+    ]
+}
