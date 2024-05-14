@@ -1,38 +1,56 @@
 {
     "Users": [
         {
-            "user_id": "832fe2df-f220-4e41-a9e7-deea4971e53c",
-            "username": "steve",
-            "email": "steve@gmail.com",
-            "timeOfchange": "2024-05-13 22:19:07"
-        },
-        {
-            "user_id": "f8db0ef0-ff16-40cb-ade7-70171f949308",
-            "username": "steve",
-            "email": "steve@gmail.com",
-            "timeOfchange": "2024-05-13 22:21:22"
-        },
-        {
-            "user_id": "f8db0ef0-ff16-40cb-ade7-70171f949308",
+            "user_id": "5a2198b9-1429-4928-bbf2-4a56933e3da7",
             "username": "joshua",
-            "email": "Hate@gmailcom",
-            "timeOfchange": "2024-05-13 22:21:30"
+            "email": "niphemi",
+            "created_at": "25:32:11 Tuesday-05/14/24-32-2024"
+        },
+        {
+            "user_id": "5a2198b9-1429-4928-bbf2-4a56933e3da7",
+            "username": "liam",
+            "email": "kunle",
+            "created_at": "36:32:11 Tuesday-05/14/24-32-2024"
         }
     ],
     "States": [
         {
-            "state_id": "d9a91b0e-93af-4a50-883e-663c5c27bb23",
-            "state_name": [
-                "PortHarcourt"
-            ],
-            "timeOfchange": "2024-05-13 22:22:17"
+            "state_id": "6b6b320f-1908-4f51-b617-270c5a49678b",
+            "state_name": "lagos",
+            "created_at": "48:32:11 Tuesday-05/14/24-32-2024"
         },
         {
-            "state_id": "d9a91b0e-93af-4a50-883e-663c5c27bb23",
-            "state_name": [
-                "ondo"
-            ],
-            "timeOfchange": "2024-05-13 22:22:29"
+            "state_id": "6b6b320f-1908-4f51-b617-270c5a49678b",
+            "state_name": "imo",
+            "created_at": "03:33:11 Tuesday-05/14/24-33-2024"
+        }
+    ],
+    "Cities": [
+        {
+            "city_id": "a836a650-fe15-4d8a-bfb4-1d889e0e09d7",
+            "city_name": "wethral",
+            "state_name": "imo",
+            "created_at": "40:33:11 Tuesday-05/14/24-33-2024"
+        },
+        {
+            "city_id": "a836a650-fe15-4d8a-bfb4-1d889e0e09d7",
+            "city_name": "kosofe",
+            "state_name": "lagos",
+            "created_at": "07:34:11 Tuesday-05/14/24-34-2024"
+        }
+    ],
+    "Place": [
+        {
+            "place_id": "e1c19327-1af8-4041-b196-b4a4d1164e81",
+            "place_name": "emmanuel_college",
+            "city_name": "wethral",
+            "created_at": "35:34:11 Tuesday-05/14/24-34-2024"
+        },
+        {
+            "place_id": "e1c19327-1af8-4041-b196-b4a4d1164e81",
+            "place_name": "olowoira",
+            "city_name": "kosofe",
+            "created_at": "53:34:11 Tuesday-05/14/24-34-2024"
         }
     ]
 }

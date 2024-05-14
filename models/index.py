@@ -38,20 +38,20 @@ class BaseModel:
 
 class User(BaseModel):
     latest = uuid.uuid4()
-    def __init__(self, user_id, username, email, timeOfChange):
-        super().__init__(user_id=user_id, username=username, email=email, timeOfchange=timeOfChange)
+    def __init__(self, user_id, username, email, created_at):
+        super().__init__(user_id=user_id, username=username, email=email, created_at=created_at)
 
 class State(BaseModel):
     latest = uuid.uuid4()
-    def __init__(self, state_id, state_name, timeOfChange):
-        super().__init__(state_id=state_id, state_name=state_name, timeOfchange=timeOfChange)
+    def __init__(self, state_id, state_name, created_at):
+        super().__init__(state_id=state_id, state_name=state_name, created_at=created_at)
 
 class City(BaseModel):
     latest = uuid.uuid4()
-    def __init__(self, city_id, city_name, state_name, timeOfChange):
-        super().__init__(city_id=city_id, city_name=city_name, state_name=state_name, timeOfchange=timeOfChange)
+    def __init__(self, city_id, city_name, state_name, created_at):
+        super().__init__(city_id=city_id, city_name=city_name, state_name=state_name, created_at=created_at)
 
 class Place(BaseModel):
     latest = uuid.uuid4()
-    def __init__(self, place_id, place_name, city_name,  timeOfChange):
-        super().__init__(place_id=place_id, place_name=place_name, city_name=city_name, timeOfchange=timeOfChange)
+    def __init__(self, place_id, place_name, city_name,  created_at):
+        super().__init__(place_id=place_id, place_name=place_name, city_name=city_name, created_at=created_at)

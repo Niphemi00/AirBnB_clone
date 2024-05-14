@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 import json 
-list_of_dicts = []
+userslist = []
+statelist = []
+citylist = []
+placelist = []
 
 class FileStorage:
     def __init__(self, filename='storage.json'):
@@ -21,14 +24,28 @@ class FileStorage:
     def add_user(self, obj):
         self.load()
         if 'Users' not in self.data:
-            self.data['Users'] = list_of_dicts
+            self.data['Users'] = userslist
         self.data['Users'].append(obj.to_dict())
 
     def add_state(self, obj):
         self.load()
         if 'States' not in self.data:
-            self.data['States'] = list_of_dicts
-        self.data['States'].append(obj.to_dict())  
+            self.data['States'] = statelist
+        self.data['States'].append(obj.to_dict()) 
+
+
+    def add_city(self, obj):
+        self.load()
+        if 'Cities' not in self.data:
+            self.data['Cities'] = citylist
+        self.data['Cities'].append(obj.to_dict())  
+
+
+    def add_place(self, obj):
+        self.load()
+        if 'Place' not in self.data:
+            self.data['Place'] = placelist
+        self.data['Place'].append(obj.to_dict())  
 
 
  
