@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Module for the User class.
+"""
 from models.base_model import BaseModel
 
 class User(BaseModel):
@@ -8,6 +11,3 @@ class User(BaseModel):
     first_name = ""
     last_name = ""
 
-    def __init__(self, *args, **kwargs):
-        """Constructor that initializes User attributes"""
-        super().__init__(*args, **kwargs)
