@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 import cmd
 from models.base_model import BaseModel
@@ -7,7 +6,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
-# from models import storage
+from models import storage
 
 class HBNBCommand(cmd.Cmd):
     """Command line interpreter for HBNB project"""
@@ -24,7 +23,7 @@ class HBNBCommand(cmd.Cmd):
                 new_instance = eval(args[0])()
                 new_instance.save()
                 print(new_instance.id)
-            except Exception:
+            except NameError:
                 print("** class doesn't exist **")
 
     def do_show(self, arg):
@@ -35,9 +34,9 @@ class HBNBCommand(cmd.Cmd):
         elif len(args) == 1:
             print("** instance id missing **")
         else:
+            key = "{}.{}".format(args[0], args[1])
             try:
-                obj_key = "{}.{}".format(args[0], args[1])
-                print(storage.all()[obj_key])
+                print(storage.all()[key])
             except KeyError:
                 print("** no instance found **")
 
@@ -49,23 +48,24 @@ class HBNBCommand(cmd.Cmd):
         elif len(args) == 1:
             print("** instance id missing **")
         else:
+            key = "{}.{}".format(args[0], args[1])
             try:
-                obj_key = "{}.{}".format(args[0], args[1])
-                del storage.all()[obj_key]
+                del storage.all()[key]
                 storage.save()
             except KeyError:
                 print("** no instance found **")
 
     def do_all(self, arg):
         """Prints all string representation of all instances"""
-        if not arg:
+        args = arg.split()
+        if len(args) == 0:
             print([str(obj) for obj in storage.all().values()])
         else:
             try:
-                objs = [str(obj) for obj in storage.all().values()
-                        if type(obj).__name__ == arg]
-                print(objs)
-            except KeyError:
+                cls_name = args[0]
+                print([str(obj) for obj in storage.all().values()
+                       if type(obj).__name__ == cls_name])
+            except NameError:
                 print("** class doesn't exist **")
 
     def do_update(self, arg):
@@ -80,15 +80,12 @@ class HBNBCommand(cmd.Cmd):
         elif len(args) == 3:
             print("** value missing **")
         else:
+            key = "{}.{}".format(args[0], args[1])
             try:
-                obj_key = "{}.{}".format(args[0], args[1])
-                obj = storage.all().get(obj_key, None)
-                if obj:
-                    setattr(obj, args[2], args[3])
-                    obj.save()
-                else:
-                    print("** no instance found **")
-            except Exception:
+                obj = storage.all()[key]
+                setattr(obj, args[2], args[3])
+                obj.save()
+            except KeyError:
                 print("** no instance found **")
 
     def do_EOF(self, arg):
