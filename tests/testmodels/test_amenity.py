@@ -14,6 +14,7 @@ class TestAmenity_instantiation(unittest.TestCase):
     """
     Unittests for testing instantiation of the Amenity class.
     """
+
     def setUp(self):
         try:
             os.rename("file.json", "tmp.json")
@@ -99,6 +100,7 @@ class TestAmenity_instantiation(unittest.TestCase):
         with self.assertRaises(TypeError):
             Amenity(id=None, created_at=None, updated_at=None)
 
+
 class TestAmenity_save(unittest.TestCase):
     """
     Unittests for save method of the Amenity class.
@@ -155,6 +157,7 @@ class TestAmenity_to_dict(unittest.TestCase):
     """
     Unittests for to_dict method of the Amenity class.
     """
+
     def setUp(self):
         try:
             os.rename("file.json", "tmp.json")
@@ -201,10 +204,10 @@ class TestAmenity_to_dict(unittest.TestCase):
         amenity1.id = "777777"
         amenity1.created_at = amenity1.updated_at = my_date
         to_dict = {
-            'id': '777777',
-            '__class__': 'Amenity',
-            'created_at': my_date.isoformat(),
-            'updated_at': my_date.isoformat(),
+            "id": "777777",
+            "__class__": "Amenity",
+            "created_at": my_date.isoformat(),
+            "updated_at": my_date.isoformat(),
         }
         self.assertDictEqual(amenity1.to_dict(), to_dict)
 

@@ -170,10 +170,10 @@ class TestState_to_dict(unittest.TestCase):
         state.id = "777777"
         state.created_at = state.updated_at = my_date
         tdict = {
-            'id': '777777',
-            '__class__': 'State',
-            'created_at': my_date.isoformat(),
-            'updated_at': my_date.isoformat(),
+            "id": "777777",
+            "__class__": "State",
+            "created_at": my_date.isoformat(),
+            "updated_at": my_date.isoformat(),
         }
         self.assertDictEqual(state.to_dict(), tdict)
 

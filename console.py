@@ -11,9 +11,9 @@ from models import storage
 
 class HBNBCommand(cmd.Cmd):
     """Command line interpreter for HBNB project"""
+
     prompt = "(hbnb) "
 
-    
     def do_create(self, arg):
         """Create a new instance of a class"""
         args = arg.split()
@@ -27,7 +27,6 @@ class HBNBCommand(cmd.Cmd):
             except NameError:
                 print("** class doesn't exist **")
 
-    
     def do_show(self, arg):
         """Prints the string representation of an instance"""
         args = arg.split()
@@ -42,7 +41,6 @@ class HBNBCommand(cmd.Cmd):
             except KeyError:
                 print("** no instance found **")
 
-    
     def do_destroy(self, arg):
         """Deletes an instance based on the class name and id"""
         args = arg.split()
@@ -58,7 +56,6 @@ class HBNBCommand(cmd.Cmd):
             except KeyError:
                 print("** no instance found **")
 
-    
     def do_all(self, arg):
         """Prints all string representation of all instances"""
         args = arg.split()
@@ -67,12 +64,16 @@ class HBNBCommand(cmd.Cmd):
         else:
             try:
                 cls_name = args[0]
-                print([str(obj) for obj in storage.all().values()
-                       if type(obj).__name__ == cls_name])
+                print(
+                    [
+                        str(obj)
+                        for obj in storage.all().values()
+                        if type(obj).__name__ == cls_name
+                    ]
+                )
             except NameError:
                 print("** class doesn't exist **")
 
-    
     def do_update(self, arg):
         """Updates an instance based on the class name and id"""
         args = arg.split()
@@ -93,7 +94,6 @@ class HBNBCommand(cmd.Cmd):
             except KeyError:
                 print("** no instance found **")
 
-    
     def do_EOF(self, arg):
         """Handles end of file"""
         return True
@@ -107,5 +107,5 @@ class HBNBCommand(cmd.Cmd):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     HBNBCommand().cmdloop()

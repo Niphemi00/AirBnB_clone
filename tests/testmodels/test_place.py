@@ -261,10 +261,10 @@ class TestPlace_to_dict(unittest.TestCase):
         my_place.id = "777777"
         my_place.created_at = my_place.updated_at = my_date
         to_dict = {
-            'id': '777777',
-            '__class__': 'Place',
-            'created_at': my_date.isoformat(),
-            'updated_at': my_date.isoformat(),
+            "id": "777777",
+            "__class__": "Place",
+            "created_at": my_date.isoformat(),
+            "updated_at": my_date.isoformat(),
         }
         self.assertDictEqual(my_place.to_dict(), to_dict)
 
