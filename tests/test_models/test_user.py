@@ -1,6 +1,10 @@
 #!/usr/bin/python3
-"""
-Module for User class
+"""Defines unittests for models/user.py.
+
+Unittest classes:
+    TestUser_instantiation
+    TestUser_save
+    TestUser_to_dict
 """
 import os
 import models
@@ -11,9 +15,7 @@ from models.user import User
 
 
 class TestUser_instantiation(unittest.TestCase):
-    """
-    Unittests for testing instantiation of the User class.
-    """
+    """Unittests for testing instantiation of the User class."""
 
     def test_no_args_instantiates(self):
         self.assertEqual(User, type(User()))
@@ -43,45 +45,45 @@ class TestUser_instantiation(unittest.TestCase):
         self.assertEqual(str, type(User.last_name))
 
     def test_two_users_unique_ids(self):
-        user1 = User()
-        user2 = User()
-        self.assertNotEqual(user1.id, user2.id)
+        us1 = User()
+        us2 = User()
+        self.assertNotEqual(us1.id, us2.id)
 
     def test_two_users_different_created_at(self):
-        user1 = User()
+        us1 = User()
         sleep(0.05)
-        user2 = User()
-        self.assertLess(user1.created_at, user2.created_at)
+        us2 = User()
+        self.assertLess(us1.created_at, us2.created_at)
 
     def test_two_users_different_updated_at(self):
-        user1 = User()
+        us1 = User()
         sleep(0.05)
-        user2 = User()
-        self.assertLess(user1.updated_at, user2.updated_at)
+        us2 = User()
+        self.assertLess(us1.updated_at, us2.updated_at)
 
     def test_str_representation(self):
-        my_date = datetime.today()
-        my_date_repr = repr(my_date)
-        user1 = User()
-        user1.id = "777777"
-        user1.created_at = user1.updated_at = my_date
-        user1_str = user1.__str__()
-        self.assertIn("[User] (777777)", user1_str)
-        self.assertIn("'id': '777777'", user1_str)
-        self.assertIn("'created_at': " + my_date_repr, user1_str)
-        self.assertIn("'updated_at': " + my_date_repr, user1_str)
+        dt = datetime.today()
+        dt_repr = repr(dt)
+        us = User()
+        us.id = "123456"
+        us.created_at = us.updated_at = dt
+        usstr = us.__str__()
+        self.assertIn("[User] (123456)", usstr)
+        self.assertIn("'id': '123456'", usstr)
+        self.assertIn("'created_at': " + dt_repr, usstr)
+        self.assertIn("'updated_at': " + dt_repr, usstr)
 
     def test_args_unused(self):
-        user1 = User(None)
-        self.assertNotIn(None, user1.__dict__.values())
+        us = User(None)
+        self.assertNotIn(None, us.__dict__.values())
 
     def test_instantiation_with_kwargs(self):
-        my_date = datetime.today()
-        my_date_iso = my_date.isoformat()
-        user1 = User(id="777", created_at=my_date_iso, updated_at=my_date_iso)
-        self.assertEqual(user1.id, "777")
-        self.assertEqual(user1.created_at, my_date)
-        self.assertEqual(user1.updated_at, my_date)
+        dt = datetime.today()
+        dt_iso = dt.isoformat()
+        us = User(id="345", created_at=dt_iso, updated_at=dt_iso)
+        self.assertEqual(us.id, "345")
+        self.assertEqual(us.created_at, dt)
+        self.assertEqual(us.updated_at, dt)
 
     def test_instantiation_with_None_kwargs(self):
         with self.assertRaises(TypeError):
@@ -167,15 +169,15 @@ class TestUser_to_dict(unittest.TestCase):
         self.assertEqual(str, type(us_dict["updated_at"]))
 
     def test_to_dict_output(self):
-        my_date = datetime.today()
+        dt = datetime.today()
         us = User()
-        us.id = "777777"
-        us.created_at = us.updated_at = my_date
+        us.id = "123456"
+        us.created_at = us.updated_at = dt
         tdict = {
-            "id": "777777",
-            "__class__": "User",
-            "created_at": my_date.isoformat(),
-            "updated_at": my_date.isoformat(),
+            'id': '123456',
+            '__class__': 'User',
+            'created_at': dt.isoformat(),
+            'updated_at': dt.isoformat(),
         }
         self.assertDictEqual(us.to_dict(), tdict)
 
