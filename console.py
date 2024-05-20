@@ -10,9 +10,7 @@ from models import storage
 
 class HBNBCommand(cmd.Cmd):
     """Command line interpreter for HBNB project"""
-
     prompt = "(hbnb) "
-
     def do_create(self, arg):
         """Create a new instance of a class"""
         args = arg.split()
