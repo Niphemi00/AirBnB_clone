@@ -8,6 +8,7 @@ from models.place import Place
 from models.review import Review
 from models import storage
 
+
 class HBNBCommand(cmd.Cmd):
     """Command line interpreter for HBNB project"""
     prompt = "(hbnb) "
@@ -97,6 +98,7 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         """Handles empty line"""
         pass
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
