@@ -1,12 +1,10 @@
 #!/usr/bin/python3
-"""
-Module for the User class.
-"""
+"""This module creates a User class"""
 from models.base_model import BaseModel
 
 
 class User(BaseModel):
-    """User class that inherits from BaseModel"""
+    """Class for managing user objects"""
 
     email = ""
     password = ""
