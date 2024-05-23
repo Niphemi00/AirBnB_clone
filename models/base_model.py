@@ -7,7 +7,6 @@ from models import storage
 
 
 class BaseModel:
-
     """Class from which all other classes will inherit"""
 
     def __init__(self, *args, **kwargs):
@@ -22,10 +21,12 @@ class BaseModel:
             for key in kwargs:
                 if key == "created_at":
                     self.__dict__["created_at"] = datetime.strptime(
-                        kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
+                        kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f"
+                    )
                 elif key == "updated_at":
                     self.__dict__["updated_at"] = datetime.strptime(
-                        kwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
+                        kwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f"
+                    )
                 else:
                     self.__dict__[key] = kwargs[key]
         else:
@@ -37,8 +38,7 @@ class BaseModel:
     def __str__(self):
         """Returns official string representation"""
 
-        return "[{}] ({}) {}".\
-            format(type(self).__name__, self.id, self.__dict__)
+        return "[{}] ({}) {}".format(type(self).__name__, self.id, self.__dict__)
 
     def save(self):
         """updates the public instance attribute updated_at"""
